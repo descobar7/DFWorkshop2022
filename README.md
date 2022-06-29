@@ -1,5 +1,5 @@
 # DFWorkshop2022
-Set of notebooks for workshop
+Set of notebooks for workshop with OLA.research
 
 Uses songs pulled from youtube to map them in 3d dimensions for comparison using UMAP
 Uses gyroscope data pulled from smartphone using PhysicsToolbox app
