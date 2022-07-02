@@ -76,15 +76,6 @@ links.new(render_layers.outputs['Depth'], map.inputs[0])
 
 links.new(map.outputs[0], outputs['Depth']['output_node'].inputs[0])
     
-
-
-cam = scene.objects['CameraMove']
-print(cam.location)
-print(scene.frame_end)
-
-
-
-
 if RUN:
     bpy.ops.render.render(animation=True, write_still=True)
 
