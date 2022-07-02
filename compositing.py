@@ -4,14 +4,19 @@ import bpy
 import mathutils
 import numpy as np
 
+
+#para correr la animacion colocar como True
 RUN = True
 
+#el nombre donde se van a guardar las imagenes
 RESULTS_PATH = 'Orig_results'
 
 PASSES = ['Image','Normal', 'Alpha','Shadow','AO','Depth']
 
-VIEWS = 500
-RESOLUTION = 1080
+#las resoluciones del video
+RESOLUTION_X = 1080
+RESOLUTION_Y = 1080
+
 
 DEPTH_SCALE = 100
 COLOR_DEPTH = 8
@@ -49,8 +54,8 @@ render_layers.location = 0,0
 
 
 scene = bpy.context.scene
-scene.render.resolution_x = RESOLUTION
-scene.render.resolution_y = RESOLUTION
+scene.render.resolution_x = RESOLUTION_X
+scene.render.resolution_y = RESOLUTION_Y
 scene.render.resolution_percentage = 100
 scene.render.image_settings.file_format = 'PNG'
 
@@ -76,6 +81,7 @@ links.new(render_layers.outputs['Depth'], map.inputs[0])
 
 links.new(map.outputs[0], outputs['Depth']['output_node'].inputs[0])
     
+
 if RUN:
     bpy.ops.render.render(animation=True, write_still=True)
 
